@@ -33,4 +33,15 @@ class Event
     inventory_hash
   end
 
+  def overstocked_items
+    result = total_inventory.find_all do |item, inventory_hash|
+      if inventory_hash[:quantity] > 50 && inventory_hash[:food_trucks].count > 1
+        item
+      end
+    end
+    result.map do |item, inventory_hash|
+      item
+    end
+  end
+
 end

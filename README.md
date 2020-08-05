@@ -231,7 +231,7 @@ event.total_inventory
   #   },
   # }
 
-pry(main).overstocked_items
+event.overstocked_items
 #=> [#<Item:0x007f9c56740d48...>]
 
 event.sorted_item_list
