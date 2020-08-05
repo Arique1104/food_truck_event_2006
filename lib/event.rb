@@ -56,4 +56,25 @@ class Event
     end.sort.uniq
   end
 
+  def sell(item, quantity)
+    total_to_sell = quantity
+    total = total_inventory[item][:quantity]
+    if total >= quantity
+      food_trucks = food_trucks_that_sell(item)
+      food_trucks.map do |food_truck|
+        food_truck_amount = food_truck.inventory[item]
+        if total_to_sell >= food_truck_amount
+          total_to_sell - food_truck_amount
+          food_truck.inventory[item] = 0
+        else total_to_sell <= food_truck_amount
+          food_truck_amount - total_to_sell
+          food_truck.inventory[item] = food_truck_amount - total_to_sell
+        end
+      end
+      true
+    else
+      false
+    end
+  end
+
 end
