@@ -6,4 +6,8 @@ class FoodTruck
     @inventory = Hash.new(0)
   end
 
+  def stock(item, quantity)
+    @inventory[item] += quantity
+  end
+
 end

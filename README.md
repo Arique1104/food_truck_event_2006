@@ -21,10 +21,8 @@ require './lib/food_truck'
 #=> true
 
 item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
-#=> #<Item:0x007f9c56740d48...>
 
 item2 = Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})
-#=> #<Item:0x007f9c565c0ce8...>
 
 item2.name
 #=> "Apple Pie (Slice)"
