@@ -1,9 +1,15 @@
+require "date"
 class Event
  attr_reader  :name,
               :food_trucks
   def initialize(name)
     @name = name
     @food_trucks = []
+    @date = Time.new
+  end
+
+  def date
+    @date.strftime("%m/%d/%Y")
   end
 
   def add_food_truck(food_truck)

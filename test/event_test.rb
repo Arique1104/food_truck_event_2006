@@ -4,6 +4,7 @@ require "mocha/minitest"
 require "./lib/item"
 require "./lib/food_truck"
 require "./lib/event"
+require "date"
 
 class EventTest < Minitest::Test
 
@@ -207,6 +208,21 @@ class EventTest < Minitest::Test
     event.add_food_truck(food_truck3)
 
     assert_equal ["Apple Pie (Slice)", "Banana Nice Cream", "Peach Pie (Slice)", "Peach-Raspberry Nice Cream"], event.sorted_item_list
+
+  end
+
+  def test_it_can_provide_date
+
+    item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
+    item2 = Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})
+    item3 = Item.new({name: "Peach-Raspberry Nice Cream", price: "$5.30"})
+    item4 = Item.new({name: "Banana Nice Cream", price: "$4.25"})
+    item5 = Item.new({name: 'Onion Pie', price: '$25.00'})
+
+    event = Event.new("South Pearl Street Farmers Market")
+    event.stubs(:date).returns("24/02/2020")
+
+    assert_equal "24/02/2020", event.date
 
   end
 
