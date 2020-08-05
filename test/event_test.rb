@@ -158,6 +158,9 @@ class EventTest < Minitest::Test
     assert_equal 100, event.total_inventory[item1][:quantity]
     assert_equal [food_truck1, food_truck3], event.total_inventory[item1][:food_trucks]
 
+    assert_equal 50, event.total_inventory[item4][:quantity]
+    assert_equal [food_truck2], event.total_inventory[item4][:food_trucks]
+
   end
 
 end
